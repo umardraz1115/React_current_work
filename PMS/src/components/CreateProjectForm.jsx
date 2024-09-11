@@ -16,7 +16,7 @@ const CreateProjectForm = ({ onEntry, onCancel }) => {
   }
 
   return (
-    <div className="w-[1040px]">
+    <div className="w-[1116px]">
       <form className="flex flex-col justify-center h-full w-9/12 ms-16">
         <div className="flex justify-end">
           <button

@@ -7,7 +7,7 @@ const SideBar = ({ onAddClickButton, projectList }) => {
       // style={{ height: "calc(100vh - 56px)" }}
     >
       <div className="ms-10">
-        <h1 className="font-semibold text-3xl font-raleway uppercase mt-24">
+        <h1 className="font-bold text-3xl font-raleway uppercase mt-24">
           Your Project
         </h1>
         <button

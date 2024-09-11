@@ -2,6 +2,7 @@ import { useState } from "react";
 import CreateProjectForm from "./components/CreateProjectForm";
 import MainContent from "./components/MainContent";
 import SideBar from "./components/sidebar";
+import ProjectDetail from "./components/ProjectDetail";
 
 function App() {
   const [showing, setShowing] = useState(false);
@@ -48,6 +49,7 @@ function App() {
             onCancel={handleCanelForm}
           />
         )}
+        {/* <ProjectDetail details={project} /> */}
       </div>
     </>
   );
