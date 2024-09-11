@@ -1,6 +1,6 @@
 import Projects from "./Projects";
 
-const SideBar = ({ onAddClickButton, projectList }) => {
+const SideBar = ({ onAddClickButton, projectList, onSelectProject }) => {
   return (
     <div
       className="h-screen bg-stone-900 text-white w-[400px]"
@@ -18,7 +18,7 @@ const SideBar = ({ onAddClickButton, projectList }) => {
           <span>Add Project</span>
         </button>
         <div className="mt-10">
-          <Projects projectTitleArray={projectList} />
+          <Projects projectTitleArray={projectList} onSelect={onSelectProject} />
         </div>
       </div>
     </div>
