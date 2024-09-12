@@ -1,4 +1,4 @@
-const ProjectDetail = ({ details }) => {
+const ProjectDetail = ({ details , onSelectToDelete }) => {
   console.log(details);
   return (
     <div className="w-[1116px]">
@@ -12,10 +12,10 @@ const ProjectDetail = ({ details }) => {
             <p className="text-sm text-gray-400">{details.date}</p>
           </div>
           <div className="flex justify-end">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">
+            {/* <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">
               Edit Project
-            </button>
-            <button className="ml-4 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg">
+            </button> */}
+            <button onClick={onSelectToDelete} className="ml-4 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg">
               Delete Project
             </button>
           </div>
