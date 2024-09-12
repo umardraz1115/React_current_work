@@ -1,10 +1,10 @@
-import { monthNames } from '../utils/Months.js'
-import Task from './Task.jsx';
+import { monthNames } from "../utils/Months.js";
+import Task from "./Task.jsx";
 const ProjectDetail = ({ details, onSelectToDelete }) => {
   function formattedDate(dateString) {
     const date = new Date(dateString);
     const day = date.getDate();
-    
+
     const month = monthNames[date.getMonth()];
     const year = date.getFullYear();
 
@@ -31,7 +31,9 @@ const ProjectDetail = ({ details, onSelectToDelete }) => {
             <p className="font-inter text-sm text-stone-500">
               {formattedDate(details.date)}
             </p>
-            <p className="font-inter text-lg font-medium text-stone-600 mt-2">{details.description}</p>
+            <p className="font-inter text-lg font-medium text-stone-600 mt-2">
+              {details.description}
+            </p>
           </div>
           <Task />
         </div>
