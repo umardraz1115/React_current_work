@@ -1,23 +1,36 @@
-const ProjectDetail = ({ details , onSelectToDelete }) => {
-  console.log(details);
+import { monthNames } from '../utils/Months.js'
+const ProjectDetail = ({ details, onSelectToDelete }) => {
+  function formattedDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${day} / ${month} / ${year}`;
+  }
   return (
     <div className="w-[1116px]">
       <div className="w-full p-6 flex justify-center">
         <div className="bg-white shadow-lg rounded-lg w-9/12 p-8">
           <div className="mb-6">
-            <h2 className="text-3xl font-extrabold text-gray-800 mb-4">
-              {details.title}
-            </h2>
-            <p className="text-lg text-gray-600 mb-2">{details.description}</p>
-            <p className="text-sm text-gray-400">{details.date}</p>
-          </div>
-          <div className="flex justify-end">
-            {/* <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">
-              Edit Project
-            </button> */}
-            <button onClick={onSelectToDelete} className="ml-4 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg">
-              Delete Project
-            </button>
+            <div className="flex justify-between">
+              <h2 className="text-3xl font-extrabold text-stone-700 mb-4">
+                {details.title}
+              </h2>
+              <div>
+                <button
+                  onClick={onSelectToDelete}
+                  className="ml-4 bg-stone-700 text-stone-300 hover:bg-stone-600 font-semibold py-2 px-4 rounded-lg"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+            <p className="text-sm text-stone-500">
+              {formattedDate(details.date)}
+            </p>
+            <p className="text-lg font-medium text-stone-600 mt-2">{details.description}</p>
           </div>
         </div>
       </div>
