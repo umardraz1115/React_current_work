@@ -1,10 +1,22 @@
 import { monthNames } from "../utils/Months.js";
+import { useState } from "react";
 import Task from "./Task.jsx";
+
 const ProjectDetail = ({ details, onSelectToDelete }) => {
+  const [currentTasks, setCurrentTasks] = useState([]);
+
+  function handleTaskInput(input) {
+    const task = input.current.value;
+    if (task) {
+      const newTask = { value: task };
+      setCurrentTasks((prevTasks) => [...prevTasks, newTask]);
+      input.current.value = "";
+    }
+  }
+
   function formattedDate(dateString) {
     const date = new Date(dateString);
     const day = date.getDate();
-
     const month = monthNames[date.getMonth()];
     const year = date.getFullYear();
 
@@ -35,7 +47,7 @@ const ProjectDetail = ({ details, onSelectToDelete }) => {
               {details.description}
             </p>
           </div>
-          <Task />
+          <Task taskInput={handleTaskInput} existTasks={currentTasks} />
         </div>
       </div>
     </div>

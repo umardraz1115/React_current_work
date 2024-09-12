@@ -11,14 +11,14 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
 
-  function handleInputData(title, description, date) {
+  function handleInputData(id, title, description, date) {
     if (!title || !description || !date) {
       toast.error("Please fill out all fields before adding a project.");
       return;
     } else {
-      const newProject = { title, description, date };
+      const newProject = { id, title, description, date };
       setProjects((prevProjects) => [...prevProjects, newProject]);
-      toast.success('Project added successfully');
+      toast.success("Project added successfully");
     }
     // setView("main");
   }
@@ -29,7 +29,7 @@ function App() {
     }
   }
   function handleProjectSelect(project) {
-    console.log(project)
+    console.log(project);
     setSelectedProject(project);
     setView("detail");
   }
@@ -39,11 +39,11 @@ function App() {
       return;
     }
     const updatedProjects = projects.filter(
-      (project) => project.title!== selectedProject.title
+      (project) => project.title !== selectedProject.title
     );
     setProjects(updatedProjects);
     setSelectedProject(null);
-    toast.success('Project deleted successfully');
+    toast.success("Project deleted successfully");
     handleViewChange("main");
   }
   console.log(projects);
@@ -60,14 +60,22 @@ function App() {
       )}
       {view === "form" && (
         <CreateProjectForm
-          onEntry={handleInputData}
+          projectData={handleInputData}
           onCancel={() => handleViewChange("main")}
         />
       )}
       {view === "detail" && selectedProject && (
-        <ProjectDetail details={selectedProject} onSelectToDelete={handleDeleteProject} />
+        <ProjectDetail
+          details={selectedProject}
+          onSelectToDelete={handleDeleteProject}
+        />
       )}
-      <ToastContainer autoClose={500} theme="dark" closeOnClick hideProgressBar={true} />
+      <ToastContainer
+        autoClose={500}
+        theme="dark"
+        closeOnClick
+        hideProgressBar={true}
+      />
     </div>
   );
 }

@@ -1,15 +1,18 @@
 import { useRef } from "react";
 
-const CreateProjectForm = ({ onEntry, onCancel }) => {
+const CreateProjectForm = ({ projectData, onCancel }) => {
   const titleInput = useRef();
   const descInput = useRef();
   const dateInput = useRef();
+  const max = 1000;
+  const min = 1;
 
   function handleSaveData() {
     const title = titleInput.current.value;
     const description = descInput.current.value;
     const date = dateInput.current.value;
-    onEntry(title, description, date);
+    const id = Math.floor(Math.random() * max) + min;
+    projectData(id, title, description, date);
     titleInput.current.value = '';
     descInput.current.value = '';
     dateInput.current.value = '';

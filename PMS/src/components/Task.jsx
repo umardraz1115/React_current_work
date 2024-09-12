@@ -1,18 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import TaskList from "./TaskList";
 
-const Task = ({ }) => {
-  const [currentTasks, setCurrentTasks] = useState([]);
+const Task = ({ taskInput, existTasks }) => {
   const input = useRef();
-
-  function handleTaskInput() {
-    const task = input.current.value;
-    if (task) {
-      const newTask = { value: task };
-      setCurrentTasks((prevTasks) => [...prevTasks, newTask]);
-      input.current.value = "";
-    }
-  }
 
   return (
     <div className="border-t-2">
@@ -27,13 +17,13 @@ const Task = ({ }) => {
           className="bg-gray-300 border-b-2 border-stone-200 focus:border-stone-700 outline-none py-1 ps-2 w-2/5"
         />
         <button
-          onClick={handleTaskInput}
+          onClick={(taskInput)(input.current)}
           className="text-stone-700 font-inter font-semibold ps-4"
         >
           Add Task
         </button>
       </div>
-      <TaskList taskLists={currentTasks} />
+      <TaskList taskLists={existTasks} />
     </div>
   );
 };
