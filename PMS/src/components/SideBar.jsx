@@ -4,7 +4,6 @@ const SideBar = ({ onAddClickButton, projectList, onSelectProject }) => {
   return (
     <div
       className="h-screen bg-stone-900 text-white w-[400px]"
-      // style={{ height: "calc(100vh - 56px)" }}
     >
       <div className="ms-10">
         <h1 className="font-bold text-3xl font-raleway uppercase mt-24">
