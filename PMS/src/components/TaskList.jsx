@@ -1,4 +1,4 @@
-const TaskList = ({ taskLists, selectedProject }) => {
+const TaskList = ({ taskLists }) => {
   return (
     <ol className="mt-5 bg-gray-100 px-5 py-7">
       {taskLists.map((taskList, index) => (
