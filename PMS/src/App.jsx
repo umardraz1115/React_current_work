@@ -45,7 +45,7 @@ function App() {
     toast.success("Project deleted successfully");
     handleViewChange("main");
   }
-  console.log(projects);
+  console.log(`Main project ${projects}`);
 
   return (
     <div className="flex">
