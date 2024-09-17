@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import TaskList from "./TaskList";
 import { useRef, useState } from "react";
 
@@ -12,6 +13,7 @@ const Task = ({ showingProject }) => {
       input.current.value = "";
     }
     showingProject.tasks.push(task);
+    toast.success('Tasks added successfully')
   }
   return (
     <div className="border-t-2">
