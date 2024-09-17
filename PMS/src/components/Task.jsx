@@ -13,7 +13,6 @@ const Task = ({ showingProject }) => {
     }
     showingProject.tasks.push(task);
   }
-  console.log(`Project that is showing ${showingProject}`);
   return (
     <div className="border-t-2">
       <h1 className="font-raleway font-bold text-stone-900 text-3xl mt-4">

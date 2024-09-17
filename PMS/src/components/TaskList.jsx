@@ -1,5 +1,4 @@
 const TaskList = ({ currentProjectTasks }) => {
-  console.log(`Tasklist added ${currentProjectTasks.tasks}`);
   return (
     <>
       {/* <ol className="mt-5 bg-gray-100 px-5 py-7">
