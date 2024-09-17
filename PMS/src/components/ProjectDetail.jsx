@@ -36,7 +36,7 @@ const ProjectDetail = ({ details, onSelectToDelete }) => {
               {details.description}
             </p>
           </div>
-          <Task  />
+          <Task showingProject={details} />
         </div>
       </div>
     </div>

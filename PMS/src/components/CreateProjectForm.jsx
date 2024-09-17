@@ -12,7 +12,8 @@ const CreateProjectForm = ({ projectData, onCancel }) => {
     const description = descInput.current.value;
     const date = dateInput.current.value;
     const id = Math.floor(Math.random() * max) + min;
-    projectData(id, title, description, date);
+    const tasks= []
+    projectData(id, title, description, date, tasks);
     titleInput.current.value = '';
     descInput.current.value = '';
     dateInput.current.value = '';

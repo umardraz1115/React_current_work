@@ -1,19 +1,19 @@
 import TaskList from "./TaskList";
 import { useRef, useState } from "react";
 
-const Task = () => {
+const Task = ({ showingProject }) => {
   const input = useRef();
-  const [currentTasks, setCurrentTasks] = useState([]);
-
+  const [tasks, setTasks] = useState([]);
   function handleTaskInput() {
     const task = input.current.value;
     if (task) {
       const newTask = { value: task };
-      setCurrentTasks((prevTasks) => [...prevTasks, newTask]);
+      setTasks((prevTasks) => [...prevTasks, newTask]);
       input.current.value = "";
     }
+    showingProject.tasks.push(task);
   }
-
+  console.log(showingProject);
   return (
     <div className="border-t-2">
       <h1 className="font-raleway font-bold text-stone-900 text-3xl mt-4">
@@ -33,7 +33,7 @@ const Task = () => {
           Add Task
         </button>
       </div>
-      <TaskList taskLists={currentTasks} />
+      <TaskList taskLists={tasks} currentProjectTasks={showingProject} />
     </div>
   );
 };

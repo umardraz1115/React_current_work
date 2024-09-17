@@ -11,12 +11,12 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
 
-  function handleInputData(id, title, description, date) {
+  function handleInputData(id, title, description, date, tasks) {
     if (!title || !description || !date) {
       toast.error("Please fill out all fields before adding a project.");
       return;
     } else {
-      const newProject = { id, title, description, date };
+      const newProject = { id, title, description, date, tasks };
       setProjects((prevProjects) => [...prevProjects, newProject]);
       toast.success("Project added successfully");
     }
@@ -29,7 +29,6 @@ function App() {
     }
   }
   function handleProjectSelect(project) {
-    console.log(project);
     setSelectedProject(project);
     setView("detail");
   }
