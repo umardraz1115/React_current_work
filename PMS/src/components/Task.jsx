@@ -15,6 +15,23 @@ const Task = ({ showingProject }) => {
     showingProject.tasks.push(task);
     toast.success('Tasks added successfully')
   }
+  function handleClearTask(taskIndex) {
+    const tasks = showingProject.tasks;
+    
+    // Filter out the task that matches the taskIndex
+    const updatedTaskList = tasks.filter((_, index) => index !== taskIndex);
+  
+    // Update the tasks in showingProject
+    showingProject.tasks = updatedTaskList;
+  
+    // Optionally update the UI state if needed
+    setTasks(updatedTaskList);
+  
+    // Success message
+    toast.success("Task cleared successfully");
+  }
+  
+  console.log(showingProject)
   return (
     <div className="border-t-2">
       <h1 className="font-raleway font-bold text-stone-900 text-3xl mt-4">
@@ -34,7 +51,7 @@ const Task = ({ showingProject }) => {
           Add Task
         </button>
       </div>
-      <TaskList currentProjectTasks={showingProject} />
+      <TaskList currentProjectTasks={showingProject} clearTask={handleClearTask} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-const TaskList = ({ currentProjectTasks }) => {
+const TaskList = ({ currentProjectTasks, clearTask }) => {
   return (
     <>
       <ol className="mt-5 bg-gray-100 px-5 py-7">
@@ -8,7 +8,7 @@ const TaskList = ({ currentProjectTasks }) => {
             className="flex justify-between py-2 font-inter font-medium"
           >
             <p>{currentTask}</p>
-            <button>Clear</button>
+            <button onClick={() => clearTask(index)}>Clear</button>
           </li>
         ))}
       </ol>
