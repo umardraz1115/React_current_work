@@ -7,6 +7,10 @@ const Task = ({ showingProject }) => {
   const [tasks, setTasks] = useState([]); 
   function handleTaskInput() {
     const task = input.current.value;
+    if(task === '') {
+      toast.error('Please enter a task');
+      return;
+    }
     if (task) {
       const newTask = { value: task };
       setTasks((prevTasks) => [...prevTasks, newTask]);
@@ -17,17 +21,9 @@ const Task = ({ showingProject }) => {
   }
   function handleClearTask(taskIndex) {
     const tasks = showingProject.tasks;
-    
-    // Filter out the task that matches the taskIndex
     const updatedTaskList = tasks.filter((_, index) => index !== taskIndex);
-  
-    // Update the tasks in showingProject
     showingProject.tasks = updatedTaskList;
-  
-    // Optionally update the UI state if needed
     setTasks(updatedTaskList);
-  
-    // Success message
     toast.success("Task cleared successfully");
   }
   
