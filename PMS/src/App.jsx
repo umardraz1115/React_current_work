@@ -13,6 +13,8 @@ function App() {
 
   function handleInputData(id, title, description, date, tasks) {
     if (!title || !description || !date) {
+      console.log('kamran bar ho ')
+      console.log(`Title: ${title} description: ${description} date: ${date}`)
       toast.error("Please fill out all fields before adding a project.");
       return;
     } else {

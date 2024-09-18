@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 const Task = ({ showingProject }) => {
   const input = useRef();
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); 
   function handleTaskInput() {
     const task = input.current.value;
     if (task) {
