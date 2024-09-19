@@ -71,7 +71,7 @@ function App() {
     addItemToCart: handleAddItemToCart,
     updateItemQuantity: handleUpdateCartItemQuantity
   };
-
+  console.log('Hello world')
   return (
     <CartContext.Provider value={ctxValue}>
       <Header />
